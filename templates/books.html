@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Books
+{% endblock %}
+
+{% block body %}
+    <h1>Result of seach:</h1>
+
+    <ul>
+        {% for book in books %}
+            <li>
+                <a href="{{ url_for('book', isbn=book.isbn) }}">
+                    {{ book.title }} : {{ book.author }} published in {{ book.year }} year
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h4><a href="{{ url_for('logout') }}">Log out</a></h4>
+
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Books finder
+{% endblock %}
+
+{% block body %}
+    <h1>Find a book</h1>
+
+    <form action="{{ url_for('find') }}" method="post">
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Author</label>
+            <input class="form-control" name="book_author">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Title</label>
+            <input class="form-control" name="book_title">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">isbn</label>
+            <input class="form-control" name="book_isbn">
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">Find a book</button>
+        </div>
+
+    </form>
+
+       <h4><a href="{{ url_for('logout') }}">Log out</a></h4>
+{% endblock %}

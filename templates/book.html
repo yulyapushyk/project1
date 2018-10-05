@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Book
+{% endblock %}
+
+{% block body %}
+    <h1>{{ book.title }}</h1>
+
+    <ul>
+        <li>Title: {{ book.title }}</li>
+        <li>Author: {{ book.author }}</li>
+        <li>isbn: {{ book.isbn }}</li>
+        <li>Year: {{ book.year }}</li>
+    </ul>
+    <h2>Reviews</h2>
+    <ul>
+        {% for review in reviews %}
+            <li>{{ review.rate }} ({{ review.review }})</li>
+        {% else %}
+            <li>No reviews.</li>
+        {% endfor %}
+    </ul>
+
+    <form action="{{ url_for('book', isbn=book.isbn) }}" method="post">
+        <div class="form-group">
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" value="1">
+            <label class="custom-control-label" for="customRadioInline1">1</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input" value="2">
+            <label class="custom-control-label" for="customRadioInline2">2</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input" value="3">
+            <label class="custom-control-label" for="customRadioInline3">3</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline4" name="customRadioInline1" class="custom-control-input" value="4">
+            <label class="custom-control-label" for="customRadioInline4">4</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline5" name="customRadioInline1" class="custom-control-input" value="5" checked>
+            <label class="custom-control-label" for="customRadioInline5">5</label>
+        </div>
+        </div>
+
+        <div class="form-group">
+            <textarea name="note" rows="4" cols="35" placeholder="Comment here ..." required></textarea>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">Add your review</button>
+        </div>
+    </form>
+
+    <h4>  Goodreads Rate: <a href="{{ url_for('book', isbn=book.isbn) }}"></a>
+        {{ average_rate }} ({{ work_ratings_count }})</h4>
+
+       <h4><a href="{{ url_for('logout') }}">Log out</a></h4>
+{% endblock %}
