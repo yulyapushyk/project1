@@ -17,8 +17,8 @@ The application needs to register users before they can log in.
 If the user makes a ‘GET’ request, login.html will be rendered. 
 
 ### Find a book
-Users can seach for a book by title, author or isbn.  
-And this page would display a list of possible matching results, 
+Users can seach for a book by title, author or isbn, or by any two of them or by title, author and isbn together.  
+And this page would display a list of possible matching results. 
 
 ### Book's details
 It's book page with details about the book: its title, author, publication year, ISBN number, and any reviews that users have left for the book on your website.
