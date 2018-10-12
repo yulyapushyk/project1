@@ -86,9 +86,9 @@ def find():
     if isbn is not None:
         like_conditions.append("isbn LIKE " + isbn)
     if title is not None:
-        like_conditions.append("LOWER(title) LIKE " + title)
+        like_conditions.append("title ILIKE " + title)
     if author is not None:
-        like_conditions.append("LOWER(author) LIKE " + author)
+        like_conditions.append("author ILIKE " + author)
     # Select statement.
     select_statement = "SELECT * FROM books WHERE " + " AND ".join(like_conditions)
 
